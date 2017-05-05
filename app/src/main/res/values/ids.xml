@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="search" type="id"/>
+    <item name="search_content" type="id"/>
+    <item name="recycler_view" type="id"/>
+    <item name="memo_title" type="id"/>
+    <item name="back" type="id"/>
+    <item name="delete" type="id"/>
+    <item name="memo_content" type="id"/>
+    <item name="confirm" type="id"/>
+    <item name="myspinner" type="id"/>
+</resources>
