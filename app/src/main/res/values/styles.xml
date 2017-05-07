@@ -16,4 +16,8 @@
 
     </style>
 
+    <style name="menu_labels_style">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
 </resources>

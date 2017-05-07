@@ -9,4 +9,9 @@
     <item name="memo_content" type="id"/>
     <item name="confirm" type="id"/>
     <item name="myspinner" type="id"/>
+    <item name="float_menu" type="id"/>
+    <item name="float_picture" type="id"/>
+    <item name="float_mic" type="id"/>
+    <item name="float_movie" type="id"/>
+    <item name="float_camera" type="id"/>
 </resources>

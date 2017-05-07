@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:fab="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="#FFFFBB"
               android:orientation="vertical">
 
     <include layout="@layout/addmemo"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,9 +58,11 @@
         app:cardCornerRadius="10dp"
         app:contentPadding="10dp">
 
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@id/confirm"
@@ -66,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_action_tick"
+                android:src="@drawable/ic_action_save"
                 app:backgroundTint="#66FF66"
                 app:borderWidth="2dp"
                 app:fabSize="normal"
@@ -78,6 +82,7 @@
                 android:layout_height="match_parent"
                 android:background="#FFFFBB"
                 android:orientation="vertical">
+
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -107,8 +112,58 @@
                 </android.support.design.widget.TextInputLayout>
 
             </LinearLayout>
+
+
+            <com.getbase.floatingactionbutton.FloatingActionsMenu
+                android:id="@id/float_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="50dp"
+                android:layout_marginRight="20dp"
+                fab:fab_addButtonColorNormal="@color/colorAccent"
+                fab:fab_addButtonColorPressed="#777777"
+                fab:fab_addButtonPlusIconColor="@color/colorBlack"
+                fab:fab_addButtonSize="normal"
+                fab:fab_expandDirection="up"
+                fab:fab_labelStyle="@style/menu_labels_style"
+                >
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@id/float_picture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_picture"
+                    app:fabSize="mini"
+                    fab:fab_title="点击插入图片"/>
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@id/float_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_camera"
+                    app:fabSize="mini"
+                    fab:fab_title="拍照"/>
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@id/float_movie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_movie"
+                    app:fabSize="mini"
+                    fab:fab_title="点击录制视频"/>
+
+                <com.getbase.floatingactionbutton.FloatingActionButton
+                    android:id="@id/float_mic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_mic"
+                    app:fabSize="mini"
+                    fab:fab_title="按住录音"/>
+
+            </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
         </RelativeLayout>
     </android.support.v7.widget.CardView>
-
-
 </LinearLayout>
