@@ -4,9 +4,12 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 
 import bean.ContentBean;
+import bean.EventBusMessage;
 import db.MemoContentProvider;
 
 /**
@@ -22,13 +25,19 @@ public class MemoDBUtil {
     public static boolean addmemo(Context context, String title, String Content, String time) {
 
             ContentValues values = new ContentValues();
-            values.put(TableUtil.COL_ID, ID);
+            //values.put(TableUtil.COL_ID, ID);
             values.put(TableUtil.COL_TITLE, title);
             values.put(TableUtil.COL_CONTENT, Content);
             values.put(TableUtil.COL_CREATE_DATE, time);
             context.getContentResolver().insert(MemoContentProvider.INSERT_URI, values);
-            ID+=1;
+        DBChange();
+            //ID+=1;
         return true;
+
+    }
+
+    private static void DBChange() {
+        EventBus.getDefault().post(new EventBusMessage("CHANGE"));
 
     }
 
@@ -50,6 +59,7 @@ public class MemoDBUtil {
 
     public static boolean deletememo(Context context, String condition) {
         context.getContentResolver().delete(MemoContentProvider.DELETE_URI, "title=?", new String[]{condition});
+        DBChange();
         return true;
     }
 
@@ -59,12 +69,14 @@ public class MemoDBUtil {
         values.put(TableUtil.COL_TITLE,title);
         values.put(TableUtil.COL_CREATE_DATE,time);
         int update = context.getContentResolver().update(MemoContentProvider.UPDATE_URI, values, "id=?", new String[]{String.valueOf(id)});
+        DBChange();
         return true;
     }
 
 
     public static boolean deletememoid(Context context, int id) {
         context.getContentResolver().delete(MemoContentProvider.DELETE_URI, "id=?", new String[]{String.valueOf(id)});
+        DBChange();
         return true;
     }
 

@@ -17,11 +17,25 @@
         </activity>
         <activity android:name=".AddMemoActivity"/>
         <activity android:name=".AlterMemoActivity"/>
+
         <provider
-            android:authorities="com.endless.memo"
             android:name="db.MemoContentProvider"
+            android:authorities="com.endless.memo"
             />
 
     </application>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
 
 </manifest>

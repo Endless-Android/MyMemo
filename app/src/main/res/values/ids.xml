@@ -14,4 +14,6 @@
     <item name="float_mic" type="id"/>
     <item name="float_movie" type="id"/>
     <item name="float_camera" type="id"/>
+    <item name="surfaceview" type="id"/>
+    <item name="imageview" type="id"/>
 </resources>

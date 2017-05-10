@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class MyOpenHelper extends SQLiteOpenHelper {
     private static MyOpenHelper mMyOpenHelper;
-    private final String CREATE_TABLE = "create table if not exists memo (id int, title varchar(40), content text, createtime varchar(40), modifytime varchar(40), isdel int default 0)";
+    private final String CREATE_TABLE = "create table if not exists memo (id INTEGER PRIMARY KEY AUTOINCREMENT, title varchar(40), content text, createtime varchar(40), modifytime varchar(40), isdel int default 0)";
 
     private MyOpenHelper(Context context) {
         super(context, "memo", null, 1);
