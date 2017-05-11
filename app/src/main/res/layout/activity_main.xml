@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#FFFFBB"
-    tools:context="com.example.administrator.mymemo.MainActivity">
+    tools:context="com.example.administrator.mymemo.ui.MainActivity">
 
     <include layout="@layout/header"/>
 
@@ -30,7 +30,7 @@
             app:rippleColor="#ff0000"
             app:backgroundTint="#66FF66"
             />
-        <view.MyRecyclerView
+        <com.example.administrator.mymemo.view.MyRecyclerView
             android:id="@id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

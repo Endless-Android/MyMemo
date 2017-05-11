@@ -1,4 +1,4 @@
-package view;
+package com.example.administrator.mymemo.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import bean.ContentBean;
+import com.example.administrator.mymemo.bean.ContentBean;
 import com.example.administrator.mymemo.R;
 
 import butterknife.BindView;

@@ -8,18 +8,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".AddMemoActivity"/>
-        <activity android:name=".AlterMemoActivity"/>
+        <activity android:name=".ui.AddMemoActivity"/>
+        <activity android:name=".ui.AlterMemoActivity"/>
 
         <provider
-            android:name="db.MemoContentProvider"
+            android:name="com.example.administrator.mymemo.db.MemoContentProvider"
             android:authorities="com.endless.memo"
             />
 

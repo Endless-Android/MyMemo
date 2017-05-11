@@ -48,6 +48,13 @@
                 android:spinnerMode="dropdown">
             </Spinner>
         </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_volume"
+            android:id="@+id/btntest"
+            />
     </LinearLayout>
 
     <ScrollView
@@ -60,7 +67,6 @@
         app:cardBackgroundColor="#FFDDAA"
         app:cardCornerRadius="10dp"
         app:contentPadding="10dp">
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -106,7 +112,7 @@
 
                     app:hintTextAppearance="@style/MyStyle">
 
-                    <view.MyEditText
+                    <com.example.administrator.mymemo.view.MyEditText
                         android:id="@id/memo_content"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -130,6 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:src="@drawable/ic_action_camera"/>
+
                 </RelativeLayout>
 
             </LinearLayout>

@@ -1,14 +1,13 @@
-package adapter;
+package com.example.administrator.mymemo.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import bean.ContentBean;
+import com.example.administrator.mymemo.bean.ContentBean;
+import com.example.administrator.mymemo.view.RecyclerViewItemView;
 
 import java.util.List;
-
-import view.RecyclerViewItemView;
 
 /**
  * Created by Administrator on 2017/5/3.

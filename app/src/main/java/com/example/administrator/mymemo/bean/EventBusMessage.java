@@ -1,4 +1,4 @@
-package bean;
+package com.example.administrator.mymemo.bean;
 
 /**
  * Created by Administrator on 2017/5/8.

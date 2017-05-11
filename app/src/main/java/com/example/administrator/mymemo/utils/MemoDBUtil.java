@@ -1,4 +1,4 @@
-package utils;
+package com.example.administrator.mymemo.utils;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,9 +8,9 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
-import bean.ContentBean;
-import bean.EventBusMessage;
-import db.MemoContentProvider;
+import com.example.administrator.mymemo.bean.ContentBean;
+import com.example.administrator.mymemo.bean.EventBusMessage;
+import com.example.administrator.mymemo.db.MemoContentProvider;
 
 /**
  * Created by Administrator on 2017/5/5.

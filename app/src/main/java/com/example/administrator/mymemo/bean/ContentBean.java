@@ -1,4 +1,4 @@
-package bean;
+package com.example.administrator.mymemo.bean;
 
 import java.io.Serializable;
 

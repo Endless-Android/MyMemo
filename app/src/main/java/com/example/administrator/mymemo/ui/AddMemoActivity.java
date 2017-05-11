@@ -1,4 +1,4 @@
-package com.example.administrator.mymemo;
+package com.example.administrator.mymemo.ui;
 
 import android.Manifest;
 import android.content.ContentResolver;
@@ -38,6 +38,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.administrator.mymemo.R;
+import com.example.administrator.mymemo.utils.MemoDBUtil;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import java.io.File;
@@ -50,7 +52,6 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import utils.MemoDBUtil;
 
 /**
  * Created by Administrator on 2017/5/3.
@@ -111,6 +112,36 @@ public class AddMemoActivity extends AppCompatActivity implements SurfaceHolder.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addmemo);
         ButterKnife.bind(this);
+        ImageView viewById = (ImageView) findViewById(R.id.btntest);
+        SurfaceHolder holder = mSurfaceview.getHolder();
+        holder.addCallback(this);
+        // setType必须设置，要不出错.
+        holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        viewById.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mMediaPlayer == null) {
+                    mMediaPlayer = new MediaPlayer();
+                }
+
+                mMediaPlayer.reset();
+                try {
+                    if(mAudioFile.getAbsolutePath() != null){
+                        mMediaPlayer.setDataSource(mAudioFile.getAbsolutePath());
+                        mMediaPlayer.prepare();
+                        mMediaPlayer.start();
+                        Toast.makeText(AddMemoActivity.this,"开始播放录音",Toast.LENGTH_SHORT).show();
+                    }else {
+                        Toast.makeText(AddMemoActivity.this,"没有录音",Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+
         mDelete.setVisibility(View.GONE);
         if (Build.VERSION.SDK_INT > 22) {
             permissionForM();
@@ -155,6 +186,7 @@ public class AddMemoActivity extends AppCompatActivity implements SurfaceHolder.
 
                     case MotionEvent.ACTION_UP:
                         Toast.makeText(AddMemoActivity.this, "停止录音", Toast.LENGTH_SHORT).show();
+                        mFloatMenu.collapse();
                         try {
                             mMediaRecorder.stop();
                             mMediaRecorder.reset();
@@ -287,7 +319,7 @@ public class AddMemoActivity extends AppCompatActivity implements SurfaceHolder.
                     }
                     mCamera = Camera.open(Camera.CameraInfo.CAMERA_FACING_BACK);
                     if (mCamera != null) {
-                        mCamera.setDisplayOrientation(90);
+                        //mCamera.setDisplayOrientation(90);  //横竖屏问题
                         mCamera.unlock();
                         mMediaRecorder.setCamera(mCamera);
                     }
@@ -298,10 +330,12 @@ public class AddMemoActivity extends AppCompatActivity implements SurfaceHolder.
                         mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
                         mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.MPEG_4_SP);
                         mMediaRecorder.setVideoEncodingBitRate(3 * 1024 * 1024);
-                        mMediaRecorder.setVideoSize(640, 480);
+                        mMediaRecorder.setVideoSize(176, 144);
+
                         mMediaRecorder.setVideoFrameRate(30);
                         mMediaRecorder.setOrientationHint(90);
-                        mMediaRecorder.setMaxDuration(30 * 1000);
+                        mMediaRecorder.setVideoEncodingBitRate(3 * 1024 * 1024);
+                        mMediaRecorder.setMaxDuration(3 * 1000);
                         mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());
                         mMovieFile = new File(mFilePath + System.currentTimeMillis() + ".mp4");
                         mMovieFile.getParentFile().mkdirs();
@@ -315,17 +349,34 @@ public class AddMemoActivity extends AppCompatActivity implements SurfaceHolder.
                     }
                 } else {
                     if (mStarted) {
+
                         try {
+                           /* mMediaRecorder.setOnErrorListener(null);
+                            mMediaRecorder.setOnInfoListener(null);
+                            mMediaRecorder.setPreviewDisplay(null);*/
                             mMediaRecorder.stop();
-                            mMediaRecorder.reset();
-                            mMediaRecorder.release();
-                            mMediaRecorder = null;
-                            if (mCamera != null) {
-                                mCamera.release();
-                                mCamera = null;
-                            }
                         } catch (IllegalStateException e) {
-                            e.printStackTrace();
+                            // TODO: handle exception
+                            Log.i("Exception", Log.getStackTraceString(e));
+                        } catch (RuntimeException e) {
+                            // TODO: handle exception
+                            Log.i("Exception", Log.getStackTraceString(e));
+                        } catch (Exception e) {
+                            // TODO: handle exception
+                            Log.i("Exception", Log.getStackTraceString(e));
+                        }
+                        //added by ouyang end
+                           /* if(mMediaRecorder != null){
+                                mMediaRecorder.setOnErrorListener(null);
+                                mMediaRecorder.setOnInfoListener(null);
+                                mMediaRecorder.setPreviewDisplay(null);
+                            mMediaRecorder.stop();*/
+                        mMediaRecorder.reset();
+                        mMediaRecorder.release();
+                        mMediaRecorder = null;
+                        if (mCamera != null) {
+                            mCamera.release();
+                            mCamera = null;
                         }
                     }
                     mStarted = false;

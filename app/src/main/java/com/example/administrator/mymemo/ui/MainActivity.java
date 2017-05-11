@@ -1,4 +1,4 @@
-package com.example.administrator.mymemo;
+package com.example.administrator.mymemo.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.example.administrator.mymemo.R;
+import com.example.administrator.mymemo.adapter.MyRecyclerViewAdapter;
+import com.example.administrator.mymemo.bean.ContentBean;
+import com.example.administrator.mymemo.bean.EventBusMessage;
+import com.example.administrator.mymemo.config.OnItemClickListener;
+import com.example.administrator.mymemo.utils.MemoDBUtil;
+import com.example.administrator.mymemo.view.MyRecyclerView;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -18,14 +26,8 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.ArrayList;
 import java.util.List;
 
-import adapter.MyRecyclerViewAdapter;
-import bean.ContentBean;
-import bean.EventBusMessage;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import config.OnItemClickListener;
-import utils.MemoDBUtil;
-import view.MyRecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         int id = bean.getId();
         Log.i("ididididididididi", "onClick: " + id);
         Bundle bundle = new Bundle();
-        bundle.putSerializable("bean", bean);
+        bundle.putSerializable("com/example/administrator/mymemo/bean", bean);
         Intent intent = new Intent(MainActivity.this, AlterMemoActivity.class);
         intent.putExtras(bundle);
         intent.putExtra("position", mPosition);

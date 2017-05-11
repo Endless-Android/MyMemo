@@ -1,4 +1,4 @@
-package view;
+package com.example.administrator.mymemo.view;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -12,10 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 import android.widget.TextView;
 
-import config.OnItemClickListener;
+import com.example.administrator.mymemo.config.OnItemClickListener;
 import com.example.administrator.mymemo.R;
 
-import adapter.MyViewHolder;
+import com.example.administrator.mymemo.adapter.MyViewHolder;
 
 /**
  * Created by Administrator on 2017/5/4.

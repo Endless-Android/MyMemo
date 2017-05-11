@@ -1,8 +1,8 @@
-package adapter;
+package com.example.administrator.mymemo.adapter;
 
 import android.support.v7.widget.RecyclerView;
 
-import view.RecyclerViewItemView;
+import com.example.administrator.mymemo.view.RecyclerViewItemView;
 
 /**
  * Created by Administrator on 2017/5/4.

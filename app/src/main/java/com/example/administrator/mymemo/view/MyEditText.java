@@ -1,4 +1,4 @@
-package view;
+package com.example.administrator.mymemo.view;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

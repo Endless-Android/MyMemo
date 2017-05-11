@@ -1,5 +1,5 @@
 
-<view.SlidingButtonView
+<com.example.administrator.mymemo.view.SlidingButtonView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
@@ -39,4 +39,4 @@
         </RelativeLayout>
     </RelativeLayout>
 
-</view.SlidingButtonView>
+</com.example.administrator.mymemo.view.SlidingButtonView>

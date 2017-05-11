@@ -1,4 +1,4 @@
-package com.example.administrator.mymemo;
+package com.example.administrator.mymemo.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +11,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.administrator.mymemo.R;
+import com.example.administrator.mymemo.bean.ContentBean;
+import com.example.administrator.mymemo.utils.MemoDBUtil;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import bean.ContentBean;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import utils.MemoDBUtil;
 
 /**
  * Created by Administrator on 2017/5/3.
@@ -51,7 +53,7 @@ public class AlterMemoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_addmemo);
         ButterKnife.bind(this);
         Bundle extras = this.getIntent().getExtras();
-        ContentBean bean = (ContentBean) extras.getSerializable("bean");
+        ContentBean bean = (ContentBean) extras.getSerializable("com/example/administrator/mymemo/bean");
         mContent = bean.getContent();
         mTimes = bean.getTime();
         mTitle = bean.getTitle();
