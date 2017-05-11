@@ -16,4 +16,8 @@
     <item name="float_camera" type="id"/>
     <item name="surfaceview" type="id"/>
     <item name="imageview" type="id"/>
+    <item name="phone_code" type="id"/>
+    <item name="edt_phone_code" type="id"/>
+    <item name="edt_phone_number" type="id"/>
+    <item name="login" type="id"/>
 </resources>

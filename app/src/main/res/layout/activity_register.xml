@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/MyStyle">
+
+        <EditText
+            android:id="@id/edt_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="请输入手机号码"
+            />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:hintTextAppearance="@style/MyStyle">
+
+            <EditText
+                android:id="@id/edt_phone_code"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="请输入短信验证码"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@id/phone_code"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="点击获取验证码"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:gravity="center"
+        android:textSize="20sp"
+        android:id="@id/login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="登录"
+
+        />
+
+</LinearLayout>
